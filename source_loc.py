@@ -2,7 +2,10 @@ import numpy as np
 import networkx as nx
 import pandas as pd
 import random
-import TRBS_EMPIRICAL.source_estimation as se
+try:
+    from . import source_estimation as se
+except (SystemError, ImportError): #ImportError
+    import source_estimation as se
 
 '''
 Enables to call functions to find the source estimation of the algorithm
