@@ -34,7 +34,7 @@ def source_estimate_corr(graph, obs_time, path_lengths):
             T[node].append([obs_time[obs],path_lengths[str(obs)][node]])
         corr_T[node] = np.corrcoef(np.array(T[node]).T)[0,1]
         
-    scores = sorted(corr_T.items(), key=operator.itemgetter(1), reverse=False)
+    scores = sorted(corr_T.items(), key=operator.itemgetter(1), reverse=True)
     source_candidate = scores[0][0]
 
     return source_candidate, scores
